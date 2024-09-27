@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "ead5a62e-973a-4296-9d23-da8faec3f60c",
+		"name": "Swagger UAT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38650399",
+		"_collection_link": "https://qa-confie.postman.co/workspace/Automation-Team~1b4a37d7-eb80-4d6b-8c84-655b9b4541c0/collection/31950774-ead5a62e-973a-4296-9d23-da8faec3f60c?action=share&source=collection_link&creator=38650399"
+	},
+	"item": [
+		{
+			"name": "Get Customer",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "AC7F1995-B051-498A-9D64-F4A6EADF7801",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://apponeportaluat.freewayinsurance.com/api/public/v1/customers/416CC5C7-4701-4E5C-B469-8054832C3EF7",
+					"protocol": "https",
+					"host": [
+						"apponeportaluat",
+						"freewayinsurance",
+						"com"
+					],
+					"path": [
+						"api",
+						"public",
+						"v1",
+						"customers",
+						"416CC5C7-4701-4E5C-B469-8054832C3EF7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Lead",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response is 200', function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Customer ID is not empty', function (){\r",
+							"    const data = pm.response.json();\r",
+							"    pm.expect(data.customerId).to.not.be.null;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "AC7F1995-B051-498A-9D64-F4A6EADF7801",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://apponeportaluat.freewayinsurance.com/api/public/v1/leads/D8508D2F-BBA4-4137-BE7F-23E09DBB5EDC",
+					"protocol": "https",
+					"host": [
+						"apponeportaluat",
+						"freewayinsurance",
+						"com"
+					],
+					"path": [
+						"api",
+						"public",
+						"v1",
+						"leads",
+						"D8508D2F-BBA4-4137-BE7F-23E09DBB5EDC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Policy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "AC7F1995-B051-498A-9D64-F4A6EADF7801",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://apponeportaluat.freewayinsurance.com/api/public/v1/policies/42BF847A-4F8D-4009-8477-7435476B459B?",
+					"protocol": "https",
+					"host": [
+						"apponeportaluat",
+						"freewayinsurance",
+						"com"
+					],
+					"path": [
+						"api",
+						"public",
+						"v1",
+						"policies",
+						"42BF847A-4F8D-4009-8477-7435476B459B"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
